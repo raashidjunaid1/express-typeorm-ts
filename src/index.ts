@@ -45,9 +45,9 @@ createDBConnections().then(async connection => {
                 .catch(err => next(err));
         });
     });
-
+    const port = process.env.PORT || 3000
     // run app
-    app.listen(3000);
+    app.listen(port);
 
     console.log("Express application is up and running on port 3000");
 
