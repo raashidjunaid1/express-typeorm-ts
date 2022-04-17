@@ -53,6 +53,13 @@ const createDBConnections = async () => {
 
 // }).catch(error => console.log("TypeORM connection error: ", error));
 
+
+console.log('RDS_HOSTNAME', process.env.RDS_HOSTNAME)
+console.log('RDS_PORT', process.env.RDS_PORT)
+console.log('RDS_DB_NAME', process.env.RDS_DB_NAME)
+console.log('RDS_USERNAME', process.env.RDS_USERNAME)
+console.log('RDS_PASSWORD', process.env.RDS_PASSWORD)
+
 const app = express();
 app.use(bodyParser.json());
 
