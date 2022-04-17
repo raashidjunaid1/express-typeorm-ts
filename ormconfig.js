@@ -20,12 +20,12 @@ if (mode) {
 module.exports = [
   {
     name: 'production',
-    host: process.env.DB_HOST || process.env.RDS_HOSTNAME,
+    host:  process.env.RDS_HOSTNAME || process.env.DB_HOST,
     type: 'postgres',
-    port: process.env.DB_PORT || process.env.RDS_PORT,
-    username: process.env.DB_USERNAME || process.env.RDS_USERNAME,
-    password: process.env.DB_PASSWORD || process.env.RDS_PASSWORD,
-    database: process.env.DB_NAME || process.env.RDS_DB_NAME,
+    port: process.env.RDS_PORT || process.env.DB_PORT,
+    username: process.env.RDS_USERNAME || process.env.DB_USERNAME,
+    password: process.env.RDS_PASSWORD || process.env.DB_PASSWORD,
+    database: process.env.RDS_DB_NAME || process.env.DB_NAME,
     synchronize: false,
     migrationsRun: false,
     entities: [entitiesDir],
