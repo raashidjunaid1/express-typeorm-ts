@@ -41,6 +41,6 @@
     "start": "node dist/index.js",
     "migration:generate": "ts-node node_modules/typeorm/cli.js migration:generate -c production -n",
     "migration:run": "ts-node node_modules/typeorm/cli.js migration:run -c production",
-    "deploy": "npm ci && npm run build && npm run start"
+    "deploy": "npm ci && npm run migration:run && npm run build && npm run start"
   }
 }

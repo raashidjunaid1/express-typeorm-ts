@@ -23,7 +23,7 @@ const createDBConnections = async () => {
         logging: false,
         migrations: [migrationsDir(".js"), migrationsDir(".ts")],
     });
-
+    console.log("running migrations >>>> ")
     await connection.runMigrations({ transaction: 'all' })
     return connection;
 };
