@@ -32,54 +32,23 @@ const createDBConnections = async () => {
 // create connection with database
 // note that it's not active database connection
 // TypeORM creates connection pools and uses them for your requests
-// createDBConnections().then(async connection => {
-//     // create express app
-//     const app = express();
-//     app.use(bodyParser.json());
+createDBConnections().then(async connection => {
+    // create express app
+    const app = express();
+    app.use(bodyParser.json());
 
-//     // register all application routes
-//     AppRoutes.forEach(route => {
-//         app[route.method](route.path, (request: Request, response: Response, next: Function) => {
-//             route.action(request, response)
-//                 .then(() => next)
-//                 .catch(err => next(err));
-//         });
-//     });
-//     const port = process.env.PORT || 3000
-//     // run app
-//     app.listen(port);
+    // register all application routes
+    AppRoutes.forEach(route => {
+        app[route.method](route.path, (request: Request, response: Response, next: Function) => {
+            route.action(request, response)
+                .then(() => next)
+                .catch(err => next(err));
+        });
+    });
+    const port = process.env.PORT || 3000
+    // run app
+    app.listen(port);
 
-//     console.log("Express application is up and running on port 3000");
+    console.log("Express application is up and running on port 3000");
 
-// }).catch(error => console.log("TypeORM connection error: ", error));
-
-
-console.log('RDS_HOSTNAME', process.env.RDS_HOSTNAME)
-console.log('RDS_PORT', process.env.RDS_PORT)
-console.log('RDS_DB_NAME', process.env.RDS_DB_NAME)
-console.log('RDS_USERNAME', process.env.RDS_USERNAME)
-console.log('RDS_PASSWORD', process.env.RDS_PASSWORD)
-
-const app = express();
-app.use(bodyParser.json());
-
-// register all application routes
-// AppRoutes.forEach(route => {
-//     app[route.method](route.path, (request: Request, response: Response, next: Function) => {
-//         route.action(request, response)
-//             .then(() => next)
-//             .catch(err => next(err));
-//     });
-// });
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
-
-const port = process.env.PORT || 3000
-// run app
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
+}).catch(error => console.log("TypeORM connection error: ", error));
