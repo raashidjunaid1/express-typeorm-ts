@@ -31,12 +31,7 @@ const path_1 = __importDefault(require("path"));
 const Category_1 = require("./entity/Category");
 const Post_1 = require("./entity/Post");
 const createDBConnections = async () => {
-    console.log("starting api : creating connections");
-    const connectionNames = [""];
-    let connectionOptions;
-    connectionOptions = await typeorm_1.getConnectionOptions("production");
-    console.log('connectionOptions :: ', connectionOptions);
-    // const migrationsDir = "./src/migrations/production/*"
+    let connectionOptions = await typeorm_1.getConnectionOptions("production");
     const migrationsDir = (extention) => path_1.default.join(__dirname, "./src/migration/*" + extention);
     const connection = await typeorm_1.createConnection(Object.assign(Object.assign({}, connectionOptions), { name: "default", entities: [
             Category_1.Category,
@@ -49,8 +44,6 @@ const createDBConnections = async () => {
 // note that it's not active database connection
 // TypeORM creates connection pools and uses them for your requests
 createDBConnections().then(async (connection) => {
-    const x = await connection.getRepository(Post_1.Post).find();
-    console.log('x ::: ', x);
     // create express app
     const app = express_1.default();
     app.use(bodyParser.json());
