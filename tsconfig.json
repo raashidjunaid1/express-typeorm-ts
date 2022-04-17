@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "target": "es2017",
+      "outDir": "./dist",
+      "baseUrl": "./src",
+      "alwaysStrict": true,
+      "noImplicitAny": false,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "lib": [
+        "es2019",
+        "dom"
+      ],
+      "esModuleInterop": true,
+      "types": [
+        "node"
+      ],
+      "typeRoots": [
+        "."
+      ],
+      "skipLibCheck": true,
+    },
+    "include": [
+      "src/**/*.ts",
+      "index.ts",
+      "ormconfig.js"
+    ],
+    "exclude": [
+      "./src/**/*.test.js",
+      "node_modules",
+      "**/node_modules"
+    ]
+  }
