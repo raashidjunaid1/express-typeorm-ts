@@ -37,6 +37,10 @@ createDBConnections().then(async connection => {
     const app = express();
     app.use(bodyParser.json());
 
+    app.get('/', (req, res) => {
+        res.send('Hello World!')
+    })
+
     // register all application routes
     AppRoutes.forEach(route => {
         app[route.method](route.path, (request: Request, response: Response, next: Function) => {
@@ -45,6 +49,7 @@ createDBConnections().then(async connection => {
                 .catch(err => next(err));
         });
     });
+    
     const port = process.env.PORT || 3000
     // run app
     app.listen(port);
