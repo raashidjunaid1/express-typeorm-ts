@@ -1,3 +1,5 @@
+
+require('dotenv').config();
 import "reflect-metadata";
 import { createConnection, getConnectionOptions } from "typeorm";
 import { Request, Response } from "express";

@@ -20,12 +20,12 @@ if (mode) {
 module.exports = [
   {
     name: 'production',
-    host: 'localhost',
+    host: process.env.DB_HOST,
     type: 'postgres',
-    port: 5431,
-    username: 'root',
-    password: 'password',
-    database: 'boilerplate',
+    port: process.env.DB_PORT,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     synchronize: false,
     migrationsRun: false,
     entities: [entitiesDir],
